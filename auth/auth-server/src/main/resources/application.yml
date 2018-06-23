@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: auth
+  redis:
+    database: 1
+    host: 192.168.12.135
+    port: 6379
+    pool:
+    jedis:
+      pool:
+        max-active: 20
+    password: jiashun
+server:
+  port: 8766
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+jwt:
+  token-header: Authorization
+  expire: 14400
+  rsa-secret: xx1WET12^%3^(WE45
+
+client:
+  id: auth
+  secret: 123456
+  token-header: x-client-token
+  expire: 14400
+  rsa-secret: x2318^^(*WRYQWR(QW&T

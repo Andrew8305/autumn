@@ -1,0 +1,39 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: user
+  datasource:
+    url: jdbc:mysql://localhost:3306/face_ucenter?useUnicode=true&characterEncoding=UTF8
+    username: root
+    password: xxxx
+    driver-class-name: com.mysql.jdbc.Driver
+    #使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+#  整合mybatis
+mybatis:
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  type-aliases-package: com.cloud.user.vo
+#  分页配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
